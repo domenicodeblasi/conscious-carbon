@@ -1,0 +1,34 @@
+.hamburgerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--black);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.xBar {
+    transform-origin: center;
+}
+
+.xBar:first-of-type {
+    transform: translateY(10.5px) rotate(-135deg);
+}
+
+.xBar:last-of-type {
+    transform: translateY(-10.5px) rotate(135deg);
+}
+
+.hidden {
+    width: 0;
+    transform-origin: left;
+    transition: width 0.15s ease;
+}

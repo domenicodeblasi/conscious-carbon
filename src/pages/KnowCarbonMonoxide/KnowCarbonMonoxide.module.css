@@ -1,0 +1,11 @@
+.pageLayout {
+    background-image: var(--mobilePattern);
+    background-position: 150px 200px;
+    min-height: calc(100dvh - 70px);
+}
+
+@media only screen and (min-width: 768px) {
+    .pageLayout {
+        background-image: var(--desktopPattern);
+    }
+}
