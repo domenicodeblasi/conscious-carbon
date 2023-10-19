@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import KnowCarbonMonoxide from "./pages/KnowCarbonMonoxide"
 import GreenHacks from "./pages/GreenHacks"
+import Footer from "./components/Footer"
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="know-carbon-monoxide" element={<KnowCarbonMonoxide />} />
         <Route path="green-hacks" element={<GreenHacks />} />
       </Routes>
+      <Footer />
     </div>
   )
 }

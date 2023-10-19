@@ -1,0 +1,96 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: fit-content;
+    font-family: var(--paragraphs);
+    font-size: 0.9rem;
+}
+
+.switchBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: fit-content;
+}
+
+.switchBtnContainer > p {
+    font-size: 0.8rem;
+    font-family: var(--paragraphs);
+    font-weight: 200;
+}
+
+.inputAndLabelContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--black);
+}
+
+.inputAndLabelContainer > input {
+    position: relative;
+    width: 100%;
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: inherit;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    background-color: var(--white);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.inputAndLabelContainer > input:focus {
+    outline: 2px solid var(--darkGreen);
+}
+
+.submitBtn {
+    position: relative;
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    margin-top: 4px;
+    color: var(--white);
+    background-color: var(--darkGreen);
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+.submitBtn:hover {
+    background-color: var(--lightGreen);
+    transition: all 0.2s ease;
+}
+
+.submitBtn:active {
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+    background-color: var(--darkGreen);
+}
+
+.submitBtn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: inset 4px 4px 5px rgba(255,255,255,0.2);
+}
+
+.submitBtn:active::before {
+    box-shadow: none;
+}

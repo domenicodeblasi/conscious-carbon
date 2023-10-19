@@ -10,17 +10,16 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <Link
                 to="/"
-                className={styles.navbarItem}
+                className={`${styles.navbarItem} ${pathname === "/" && styles.homeNavbarItem}`}
             >Home</Link>
             <Link
                 to="/know-carbon-monoxide"
-                className={styles.navbarItem}
+                className={`${styles.navbarItem} ${pathname === "/" && styles.homeNavbarItem}`}
             >Know Carbon Monoxide</Link>
             <Link
                 to="/green-hacks"
-                className={styles.navbarItem}
+                className={`${styles.navbarItem} ${pathname === "/" && styles.homeNavbarItem}`}
             >Green Hacks</Link>
-            {/* {pathname} */}
         </nav>
     )
 }

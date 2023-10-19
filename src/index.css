@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth ;
+}
+
 :root {
 
   /* COLORS */

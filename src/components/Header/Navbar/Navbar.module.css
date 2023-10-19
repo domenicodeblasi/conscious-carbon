@@ -14,15 +14,25 @@
     font-size: 1.4rem;
     text-decoration: none;
     color: var(--black);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .navbarItem:hover {
     color: var(--lightGreen);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .navbarItem:active {
     color: var(--darkGreen);
     transition: color 10ms ease;
+}
+
+/* homepage styles */
+.homeNavbarItem {
+    color: var(--white);
+}
+
+.homeNavbarItem:hover,
+.homeNavbarItem:active {
+    color: var(--red);
 }
