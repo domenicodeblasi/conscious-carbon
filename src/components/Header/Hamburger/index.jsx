@@ -1,9 +1,11 @@
 import React from "react"
+import { useMenu } from "../../../context/MenuContext"
 import { useLocation } from "react-router-dom"
 import styles from "./Hamburger.module.css"
 
-const Hamburger = ({ toggleMenu, isMenuOpen }) => {
+const Hamburger = () => {
 
+    const { isMenuOpen, toggleMenu } = useMenu()
     const { pathname } = useLocation()
 
     return (

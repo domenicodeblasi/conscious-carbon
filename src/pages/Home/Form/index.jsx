@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useRef } from "react"
 import styles from "./Form.module.css"
+import { useFetchData } from "../../../context/FetchDataContext"
 import { useForm } from "../../../context/FormContext"
 import SwitchBtn from "./SwitchBtn"
 
 const Form = () => {
 
+    const { setData } = useFetchData()
     const { switchValue, inputs, handleInputChange, handleSubmit } = useForm()
 
     return (
@@ -26,6 +28,7 @@ const Form = () => {
                         id="country"
                         value={inputs.country}
                         onChange={handleInputChange}
+                        onFocus={() => {setData(0)}}
                         autoComplete="off"
                         required
                     />
@@ -40,6 +43,7 @@ const Form = () => {
                             id="latitude"
                             value={inputs.latitude}
                             onChange={handleInputChange}
+                            onFocus={() => {setData(0)}}
                             autoComplete="off"
                             required
                         />
@@ -51,6 +55,7 @@ const Form = () => {
                             id="longitude"
                             value={inputs.longitude}
                             onChange={handleInputChange}
+                            onFocus={() => {setData(0)}}
                             autoComplete="off"
                             required
                         />
@@ -65,6 +70,7 @@ const Form = () => {
                     id="startDate"
                     value={inputs.startDate}
                     onChange={handleInputChange}
+                    onFocus={() => {setData(0)}}
                     autoComplete="off"
                     required
                 />
@@ -77,6 +83,7 @@ const Form = () => {
                     id="endDate"
                     value={inputs.endDate}
                     onChange={handleInputChange}
+                    onFocus={() => {setData(0)}}
                     min={inputs.startDate}
                     required
                 />

@@ -8,7 +8,7 @@ const Footer = () => {
                 <h2>Contact</h2>
                 <div className={styles.contactList}>
                     <a href="https://it.linkedin.com/in/domenico-de-blasi">LinkedIn</a>
-                    <a href="mailto://domenico.deblasi33@gmail.com">Email</a>
+                    <a href="mailto:domenico.deblasi33@gmail.com">Email</a>
                     <a href="https://domenicodeblasi.netlify.app/">Portfolio</a>
                 </div>
             </div>

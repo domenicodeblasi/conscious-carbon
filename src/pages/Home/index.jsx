@@ -1,7 +1,11 @@
 import React from "react"
 import styles from "./Home.module.css"
+import { useError } from "../../context/ErrorContext"
+import { useResults } from "../../context/ResultsContext"
 import { useForm } from "../../context/FormContext"
 import { useFetchData } from "../../context/FetchDataContext"
+
+import Error from "./../../components/Error"
 import Logo from "./../../assets/imgs/logo.svg"
 import Form from "./Form"
 import Spinner from "./../../components/Spinner"
@@ -9,6 +13,8 @@ import Results from "./Results"
 
 const Home = () => {
 
+    const { isErrorShown } = useError()
+    const { isResultsSectionOpen, setIsResultsSectionOpen } = useResults()
     const { isFetchingData } = useForm()
     const { data } = useFetchData()
 
@@ -25,7 +31,7 @@ const Home = () => {
                 >
                     Take action now for a sustainable future!
                 </a>
-
+                
             </section>
             <section className={styles.logotypeContainer} id="main-content">
                 <img
@@ -35,9 +41,9 @@ const Home = () => {
                 />
                 <h1 className={styles.heading}>Conscious Carbon</h1>
             </section>
-            <Form />
+            {isErrorShown ? <Error /> : <Form />}
             {isFetchingData && <Spinner />}
-            {data.length > 0 && <Results />}
+            {(isResultsSectionOpen && data.length > 0) && <Results />}
         </section>
     )
 }

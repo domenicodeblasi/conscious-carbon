@@ -1,5 +1,47 @@
 .spinner {
     background-color: red;
-    width: 100px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 50%;
+    display: flex;
+    flex-flow:wrap;
+}
+
+.spinner div {
+    width: 20px;
+    height: 20px;
+}
+
+.spinner div:nth-child(1) {
+    background-color: var(--darkGreen);
+    border-radius: 100% 0 0 0;
+    animation: light-portion 600ms infinite;
+}
+
+.spinner div:nth-child(2) {
+    background-color: var(--darkGreen);
+    border-radius: 0 100% 0 0;
+    animation: light-portion 600ms infinite 150ms;
+}
+
+.spinner div:nth-child(4) {
+    background-color: var(--darkGreen);
+    border-radius: 0 0 100% 0;
+    animation: light-portion 600ms infinite 300ms;
+}
+
+.spinner div:nth-child(3) {
+    background-color: var(--darkGreen);
+    border-radius: 0 0 0 100%;
+    animation: light-portion 600ms infinite 450ms;
+}
+
+@keyframes light-portion {
+    from {
+        background-color: var(--darkGreen);
+    }
+    to {
+        background-color: var(--lightGreen);
+    }
 }

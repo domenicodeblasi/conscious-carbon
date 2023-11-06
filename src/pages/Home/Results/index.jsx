@@ -1,13 +1,16 @@
 import React, { useState } from "react"
 import styles from "./Results.module.css"
 import { useFetchData } from "../../../context/FetchDataContext"
+import { useForm } from "../../../context/FormContext"
 import { calcAverageScore, calcMarkerPosition, formatDate } from "../../../utils/dataProcessing"
 import { InformationCircleIcon as InfoIcon } from "@heroicons/react/24/outline"
+import Map from "./Map"
 import Pagination from "./../../../components/Pagination"
 
 const Results = () => {
 
-    const { data } = useFetchData()
+    const { data, country } = useFetchData()
+    const { switchValue, inputs } = useForm()
     const averageScore = calcAverageScore(data)
     const itemsPerPage = 10
     const [currentPage, setCurrentPage] = useState(0)
@@ -38,19 +41,6 @@ const Results = () => {
         <section className={styles.resultsContainer}>
 
             <div className={styles.overviewContainer}>
-                {/*
-                <div className={styles.countryInfo}>  /solo country/
-                    flag
-                    countryName
-                </div> 
-                */}
-
-                {/*
-                <div className={styles.coordinatesInfo}>  /solo coordinates/
-                    latitude
-                    longitude
-                </div> 
-                */}
 
                 <div className={styles.emissionOverviewSection}>
                     {/* emissionAverageScore */}
@@ -72,9 +62,27 @@ const Results = () => {
                         <p>{comment}</p>
                     </div>
                 </div>
+
+                {switchValue === "country" ? (
+                    <div className={styles.countryInfo}>
+                        {country.flag && (
+                            <img
+                                className={styles.countryFlag}
+                                src={country.flag.svg}
+                                alt={country.flag.alt}
+                            />
+                        )}
+                        <h3 className={styles.countryName}>{country.country}</h3>
+                    </div>
+                ) : (
+                    <div className={styles.coordinatesInfo}>
+                        <h3>Latitude: {inputs.latitude}°</h3>
+                        <h3>Longitude: {inputs.longitude}°</h3>
+                        <Map />
+                    </div>
+                )}
+
             </div>
-
-
 
             <div className={styles.emissionTimelineSection}>
                 {currentPageData.map(emission => (

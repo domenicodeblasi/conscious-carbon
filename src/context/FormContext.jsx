@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
+import { useResults } from "./ResultsContext"
 
 const FormContext = createContext()
 
@@ -8,6 +9,7 @@ export const useForm = () => {
 
 const FormContextProvider = ({ children }) => {
 
+    const { isResultsSectionOpen, setIsResultsSectionOpen } = useResults()
     const [switchValue, setSwitchValue] = useState("country")
     const [inputs, setInputs] = useState({
         country: "",
@@ -23,6 +25,7 @@ const FormContextProvider = ({ children }) => {
 
     const handleInputChange = (e) => {
         const { id, value } = e.target
+        isResultsSectionOpen && setIsResultsSectionOpen(false)
         setInputs({
             ...inputs,
             [id]: value,
@@ -34,6 +37,7 @@ const FormContextProvider = ({ children }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setIsFetchingData(true)
+        setIsResultsSectionOpen(true)
     }
 
     useEffect(() => {

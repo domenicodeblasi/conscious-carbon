@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
+import { useError } from "./ErrorContext"
 
 const CountriesContext = createContext()
 
@@ -8,6 +9,7 @@ export const useCountries = () => {
 
 const CountriesContextProvider = ({ children }) => {
 
+    const { toggleError, toggleMessageError } = useError()
     const [allCountriesArray, setAllCountriesArray] = useState([])
 
     const fetchCountriesData = async () => {
@@ -27,7 +29,8 @@ const CountriesContextProvider = ({ children }) => {
             })))
 
         } catch (err) {
-            console.log("An error occurred, try to reload the page")
+            toggleMessageError("Network Error, try to reload the page")
+            toggleError()
         }
     }
 

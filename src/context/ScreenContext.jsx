@@ -13,9 +13,11 @@ const ScreenContextProvider = ({ children }) => {
     const lg = 1024
     const xl = 1280
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
+    const [scrollbarWidth, setScrollbarWidth] = useState(window.innerWidth - document.documentElement.clientWidth)
 
     const handleResize = () => {
-        return setCurrentWidth(window.innerWidth)
+        setCurrentWidth(window.innerWidth)
+        setScrollbarWidth(window.innerWidth - document.documentElement.clientWidth)
     }
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const ScreenContextProvider = ({ children }) => {
     })
 
     return (
-        <ScreenContext.Provider value={{ sm, md, lg, xl, currentWidth }}>
+        <ScreenContext.Provider value={{ sm, md, lg, xl, currentWidth, scrollbarWidth }}>
             {children}
         </ScreenContext.Provider>
     )

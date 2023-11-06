@@ -1,0 +1,19 @@
+.menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    top: 70px;
+    left: 0;
+    width: 100dvw;
+    height: calc(100dvh - 70px);
+    background-color: var(--white);
+    padding: 40px;
+}
+
+.link {
+    font-family: var(--titles);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

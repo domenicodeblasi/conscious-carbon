@@ -4,7 +4,10 @@ import styles from "./Spinner.module.css"
 const Spinner = () => {
     return (
         <div className={styles.spinner}>
-            <p>spinner</p>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     )
 }

@@ -12,9 +12,14 @@
     padding: 20px 10px;
 }
 
-/* .overviewContainer {
-    background-color: red;
-} */
+.overviewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+}
 
 .emissionOverviewSection {
     display: flex;
@@ -23,11 +28,9 @@
     gap: 15px;
     width: 100%;
     height: fit-content;
-    /* background-color: red; */
 }
 
 .emissionAverageScore {
-    /* background-color: cyan; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +42,8 @@
 
 .emissionAverageScore > p {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.03rem;
     font-weight: 300;
 }
 
@@ -75,7 +79,7 @@
 }
 
 .emissionComment {
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0,0,0,0.2);
     padding: 10px;
     display: flex;
     gap: 10px;
@@ -84,13 +88,65 @@
     height: fit-content;
     justify-content: space-between;
     border-radius: 5px;
-    /* align-items: flex-start; */
 }
 
 .commentIcon {
     color: var(--white);
     min-width: 1.4rem;
     max-width: 1.4rem;
+}
+
+.countryInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 30px 0 25px 0;
+    background-color: var(--white);
+    box-shadow: inset 7px 7px 10px rgba(0,0,0,0.3);
+    background-image: var(--mobilePattern);
+}
+
+.countryFlag {
+    width: 150px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    border: 3px solid var(--black);
+}
+
+.countryName {
+    color: var(--dark);
+    font-family: var(--paragraphs);
+    letter-spacing: 0.03rem;
+    font-weight: 300;
+    font-size: 1.2rem
+}
+
+.coordinatesInfo {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--white);
+    background-image: var(--mobilePattern);
+    border-radius: 5px;
+    padding-top: 15px;
+    box-shadow: inset 5px 5px 8px rgba(0,0,0,0.3);
+}
+
+.coordinatesInfo h3 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: var(--paragraphs);
+    color: var(--black);
+    letter-spacing: 0.03rem;
+    font-weight: 300;
+    font-size: 1.2rem
+}
+
+.coordinatesInfo h3:nth-child(2) {
+    margin-bottom: 15px;
 }
 
 .emissionTimelineSection {
@@ -103,7 +159,6 @@
     max-width: 300px;
     height: 420px;
     gap: 10px;
-    /* background-color: red; */
 }
 
 .listItem {
@@ -136,15 +191,16 @@
     }
 
     .overviewContainer {
-        width: 100%;
         max-width: 50%;
-        /* background-color: green; */
+    }
+
+    .coordinatesInfo {
+        max-width: 600px;
     }
 
     .emissionTimelineSection {
         width: 100%;
         max-width: 50%;
-        /* background-color: red; */
     }
 
     .listItem {
