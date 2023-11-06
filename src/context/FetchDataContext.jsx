@@ -28,7 +28,7 @@ const FetchDataContextProvider = ({ children }) => {
             const getUrl = async () => {
 
                 if (switchValue === "country") {
-                    const countries = await allCountriesArray.filter(obj => obj.country.toLowerCase().startsWith(inputs.country))
+                    const countries = await allCountriesArray.filter(obj => obj.country.toLowerCase().startsWith(inputs.country.toLowerCase()))
                     console.log(countries)
 
                     if (countries.length == 0) {

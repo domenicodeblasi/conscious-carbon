@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useState } from "react"
 import styles from "./Form.module.css"
 import { useFetchData } from "../../../context/FetchDataContext"
 import { useForm } from "../../../context/FormContext"
@@ -8,6 +8,11 @@ const Form = () => {
 
     const { setData } = useFetchData()
     const { switchValue, inputs, handleInputChange, handleSubmit } = useForm()
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = (today.getMonth() + 1).toString().padStart(2, "0")
+    const day = today.getDate().toString().padStart(2, "0")
+    const todayDate = `${year}-${month}-${day}`
 
     return (
         <form
@@ -72,6 +77,7 @@ const Form = () => {
                     onChange={handleInputChange}
                     onFocus={() => {setData(0)}}
                     autoComplete="off"
+                    max={todayDate}
                     required
                 />
             </div>
@@ -85,6 +91,7 @@ const Form = () => {
                     onChange={handleInputChange}
                     onFocus={() => {setData(0)}}
                     min={inputs.startDate}
+                    max={todayDate}
                     required
                 />
             </div>
