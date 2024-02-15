@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import styles from "./Home.module.css"
 import { useError } from "../../context/ErrorContext"
 import { useResults } from "../../context/ResultsContext"
 import { useForm } from "../../context/FormContext"
 import { useFetchData } from "../../context/FetchDataContext"
 
+import Banner from "./Banner"
 import Error from "./../../components/Error"
 import Logo from "./../../assets/imgs/logo.svg"
 import Form from "./Form"
@@ -18,8 +19,14 @@ const Home = () => {
     const { isFetchingData } = useForm()
     const { data } = useFetchData()
 
+    const [isBannerOpen, setIsBannerOpen] = useState(true);
+    const handleClick = () => {
+        isBannerOpen ? setIsBannerOpen(false) : setIsBannerOpen(true)
+    }
+
     return (
         <section className={styles.pageLayout}>
+            {isBannerOpen && <Banner handleClick={handleClick} />}
             <section className={styles.summary}>
                 <p>Welcome to</p>
                 <p>Conscious Carbon!</p>
@@ -31,7 +38,7 @@ const Home = () => {
                 >
                     Take action now for a sustainable future!
                 </a>
-                
+
             </section>
             <section className={styles.logotypeContainer} id="main-content">
                 <img

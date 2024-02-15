@@ -1,0 +1,32 @@
+.banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--red);
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    padding: 40px 15px;
+    font-family: var(--titles);
+}
+
+.bannerCloseBtn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: var(--white);
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 22px;
+    width: 90%;
+    max-width: 600px;
+    color: var(--white);
+}

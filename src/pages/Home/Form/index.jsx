@@ -13,7 +13,8 @@ const Form = () => {
     const month = (today.getMonth() + 1).toString().padStart(2, "0")
     const day = today.getDate().toString().padStart(2, "0")
     const todayDate = `${year}-${month}-${day}`
-
+    const APILimitDate = "2023-11-25"
+    
     return (
         <form
             className={styles.form}
@@ -77,7 +78,9 @@ const Form = () => {
                     onChange={handleInputChange}
                     onFocus={() => {setData(0)}}
                     autoComplete="off"
-                    max={todayDate}
+                    // API is not updating, so I set the max-date to November 25th 2023
+                    // max={todayDate}
+                    max={APILimitDate}
                     required
                 />
             </div>
@@ -91,7 +94,9 @@ const Form = () => {
                     onChange={handleInputChange}
                     onFocus={() => {setData(0)}}
                     min={inputs.startDate}
-                    max={todayDate}
+                    // API is not updating, so I set the max-date to November 25th 2023
+                    // max={todayDate}
+                    max={APILimitDate}
                     required
                 />
             </div>
